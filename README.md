@@ -1,7 +1,7 @@
 # ordering
  一个迷你的单位食堂订餐系统
-这是我开始学习Python 40多天以来做的第一个应用。
-这是一个用Flask制作的网站，前端使用了bootstrap和WTF,后端采用了Python和MySql。
+这是我学习Python 以来做的第一个应用。
+一个用Flask制作的网站，前端使用了bootstrap和WTF,后端采用了Python和MySql。
 
 * ### 2019-7-21：创建仓库并上传项目。目前只完成了主页面、订餐（还未完善）和今日菜单功能
 
