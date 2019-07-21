@@ -1,0 +1,22 @@
+{% extends "OrdingBase.html" %}
+
+{% block content %}
+
+    <div class="container ">
+
+       {{ form.name.label }}<br>
+        {{ form.name }}<br>
+        {{ form.number.label }}<br>
+        {{ form.number(class = "input-group-sm") }}<br>
+        {{ form.sub.label }}<br>
+        {{ form.sub(class="input-lg") }}<br>
+
+        <!-- 页脚 -->
+        <div style="margin-bottom: 0px" class="col-sm-12 text-center">
+              <hr/>
+               <footer >WJ 利用 ( Flask、Bootstrap、WTF of Python & MySQL ) 制作</footer>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "bootstrap/base.html" %}
+<!-- 标题 -->
+{% block title %}订餐系统{% endblock %}
+
+{%- block styles %}
+    <!-- Bootstrap -->
+    <link href="/static/CSS/bootstrap.min.css" rel="stylesheet">
+    <!-- 自定义的style块 -->
+    {% block myStyle %}
+        <style type="text/css">
+            #test{
+                color:red;
+            }
+            .my_ordering_item{
+                display:flex;
+                flex-flow:row wrap;
+                justify-content:flex-start;
+            }
+            .my_checkbox_label{
+                padding-left:5px;
+                padding-right: 10px
+            }
+            .my_menu_item{
+
+                margin:10px;
+            }
+        </style>
+    {% endblock myStyle %}
+{%- endblock styles %}
+
+<!-- 导航栏 -->
+{% block navbar %}
+
+    <!-- 此处为一个徽章 -->
+        <!--   <div class="jumbotron text-center " style="margin-bottom:0">
+            <h2>欢迎订餐！</h2>
+            <p>吃饱了，才有力气减肥！</p>
+        </div>-->
+
+    <h1 class="text-center">欢迎订餐</h1>
+
+    <div class ="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">首页</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/ordering">订餐</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="/order_list">订单查询</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">发布菜单</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">系统管理</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <!-- 自定义的网页主体块 -->
+    {% block myContent %} {% endblock myContent %}
+    {% block footer %}
+        <div id="footer" style="text-align:center">
+              <hr/>
+               <footer >WJ 利用 ( Flask、Bootstrap、WTF of Python & MySQL ) 制作</footer>
+        </div>
+    {% endblock footer %}
+{% endblock content %}
+{% block scripts %}
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+{%- endblock scripts %}
+

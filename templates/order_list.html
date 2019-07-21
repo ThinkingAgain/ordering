@@ -1,0 +1,57 @@
+{% extends "OrdingBase.html" %}
+
+{% block myContent %}
+
+    <div class="container ">
+        <!-- flash闪加消息 -->
+        {% for message in get_flashed_messages() %}
+            <h3>{{ message }}</h3><br>
+        {% endfor %}
+
+        <div class="page-header">
+         <h3 class="text-center">今日订单</h3>
+        </div>
+
+       <!-- 今日菜单左侧空出几列 -->
+       <div class="col-sm-1"></div>
+
+        <!-- 今日菜单列表 -->
+       <div class="col-sm-10">
+           <table style="color:#fff;background-color:#212529" class="table text-center">
+               <thead>
+               <tr>
+                <th  style="text-align: center" class="col-sm-1">ID</th>
+                <th  style="text-align: center" class="col-sm-1">日期</th>
+                <th  style="text-align: center" class="col-sm-1">订餐人</th>
+                <th  style="text-align: center" >订单内容</th>
+                <th  style="text-align: center" class="col-sm-1">金额</th>
+                <th  style="text-align: center" class="col-sm-2">账户余额</th>
+               </tr>
+               </thead>
+                <tbody>
+
+                  {% for order in orders %}
+                    <tr>
+                        {% for item in order %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+                    </tr>
+                  {% endfor %}
+
+                </tbody>
+           </table>
+       </div>
+
+        <div class="col-sm-8">
+            <hr>
+            <form action="/order_list" method="post" >
+                <fieldset>
+                    <input type="submit" name="button" value="今日订单" class="input-lg ">
+                </fieldset>
+            </form>
+        </div>
+
+
+    </div>
+
+{% endblock myContent %}
