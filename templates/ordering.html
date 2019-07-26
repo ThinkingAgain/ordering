@@ -3,16 +3,16 @@
 {% block myContent %}
 
     <div class="container ">
-        {% for message in get_flashed_messages() %}
-            <h4>{{ message }}</h4><br>
+        {% for category, message in get_flashed_messages(with_categories=true) %}
+           <h5 class="my_flash_{{ category }}">{{ message }}</h5>
         {% endfor %}
 
         <form action="/ordering" method="post">
             <fieldset >
                 <legend >菜单</legend>
-                <div id="my_menu" class="my_ordering_item">
+                <div id="my_menu" class="my_ordering_container">
                     {% for item, content in menu.items()  %}
-                    <div class="my_menu_item">
+                    <div class="my_ordering_item">
                     <input type="checkbox" name="menu" value="{{ item }}" >
                     <label class="my_checkbox_label">{{ content["label"]}}</label>
                     <input type="number" name="{{ item}}"  min="1" max="9" value="1">
@@ -23,9 +23,9 @@
 
             <fieldset >
                 <legend >订餐人</legend>
-                <div id="my_menu" class="my_ordering_item">
+                <div id="my_menu" class="my_ordering_container">
                     {% for item in custom  %}
-                    <div class="my_menu_item">
+                    <div class="my_ordering_item">
                     <input type="checkbox" name="custom" value="{{ item }}" >
                     <label class="my_checkbox_label">{{ item}}</label>
                     </div>

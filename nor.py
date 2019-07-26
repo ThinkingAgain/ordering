@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 from flask_bootstrap import Bootstrap
 
 #from module import *
@@ -37,7 +37,11 @@ def nor():
         form = TestForm()
         return render_template('nor.html',form = form)
 
-@app.route("/flash")
+#文件下载
+@app.route("/down/<filename>")
+def download(filename):
+    dir = "F:/down"
+    return send_from_directory(dir,filename, as_attachment=True)
 
 
 def main():

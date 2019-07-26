@@ -1,0 +1,54 @@
+{% extends "OrdingBase.html" %}
+
+{% block myContent %}
+
+    <div class="container ">
+        <!-- flash闪加消息 -->
+        {% for message in get_flashed_messages() %}
+            <h4>{{ message }}</h4><br>
+        {% endfor %}
+
+        <!-- 增加菜单至周四菜单项 -->
+        <div class="well col-md-3">
+             <form action="/publish_menu" method="post" >
+                <fieldset>
+                    <legend >新增菜单</legend>
+                    <div class="my_ordering_container">
+                    {{ new_menu_form.name.label }}{{ new_menu_form.name }}
+                    {{ new_menu_form.price.label }}{{ new_menu_form.price }}
+                    {{ new_menu_form.csrf_token }}
+                    {{ new_menu_form.sub }}
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+
+
+        <!-- 发布菜单 -->
+       <div class="well col-md-8">
+        <form action="/publish_menu" method="post">
+            <fieldset >
+                <legend  class="text-center">请选择菜单发布</legend>
+                <div id="my_menu" class="my_ordering_container">
+                    {% for item, content in menu.items() %}
+                    <div class="my_publish_item">
+                    <input type="checkbox" name="menu" value="{{ item }}" >
+                    <label class="my_checkbox_label">{{ content["label"]}}：{{content["price"]}}&nbsp;元</label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <hr>
+
+            <p><input type="submit" name="sub" value="发布周四菜单" class="input-lg"></p>
+        </form>
+       </div>
+
+
+
+
+
+    </div>
+
+{% endblock myContent %}

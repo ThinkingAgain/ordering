@@ -5,25 +5,12 @@
 {%- block styles %}
     <!-- Bootstrap -->
     <link href="/static/CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/CSS/my.css" rel="stylesheet">
+
     <!-- 自定义的style块 -->
     {% block myStyle %}
         <style type="text/css">
-            #test{
-                color:red;
-            }
-            .my_ordering_item{
-                display:flex;
-                flex-flow:row wrap;
-                justify-content:flex-start;
-            }
-            .my_checkbox_label{
-                padding-left:5px;
-                padding-right: 10px
-            }
-            .my_menu_item{
 
-                margin:10px;
-            }
         </style>
     {% endblock myStyle %}
 {%- endblock styles %}
@@ -52,7 +39,7 @@
                     <li><a href="/order_list">订单查询</a></li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li><a href="#">发布菜单</a></li>
+                    <li><a href="/publish_menu">发布菜单</a></li>
                 </ul>
                 <ul class="nav navbar-nav">
                     <li><a href="#">系统管理</a></li>

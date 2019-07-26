@@ -21,7 +21,7 @@
                <thead>
                <tr>
                 <th  style="text-align: center" class="col-sm-1">ID</th>
-                <th  style="text-align: center" class="col-sm-1">日期</th>
+                <th  style="text-align: center" class="col-sm-2">日期</th>
                 <th  style="text-align: center" class="col-sm-1">订餐人</th>
                 <th  style="text-align: center" >订单内容</th>
                 <th  style="text-align: center" class="col-sm-1">金额</th>
@@ -42,6 +42,21 @@
            </table>
        </div>
 
+        <!-- 订单汇总 -->
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class=" panel panel-info ">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">总计：{{total_cost}}元</h3>
+                </div>
+                <div class="panel-body my_ordering_container">
+                    {% for item, cost in summary_of_orders.items() %}
+                    <span class="label label-success">{{ item }}：{{ cost }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- 订单查询表单 -->
         <div class="col-sm-8">
             <hr>
             <form action="/order_list" method="post" >

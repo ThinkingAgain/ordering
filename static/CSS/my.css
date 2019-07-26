@@ -1,0 +1,25 @@
+#test{
+    color:red;
+}
+.my_ordering_container{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:space-between;
+}
+.my_ordering_item{
+    flex-basis: 20%;
+}
+.my_publish_item{flex-basis:33%;}
+.my_checkbox_label{
+    padding-left:5px;
+    padding-right: 10px
+}
+.my_menu_item{
+
+    margin:10px;
+}
+
+.my_flash_error{
+    font-style:italic;
+    color:#F00;
+}
