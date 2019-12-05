@@ -84,7 +84,7 @@ def publish_menu():
 
 
     menu = db.get_special_menu()
-    return render_template('publish_menu.html', menu = menu, new_menu_form=new_menu_form)
+    return render_template('publish_menu.html', menu=menu, new_menu_form=new_menu_form)
 
 
 
