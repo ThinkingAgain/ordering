@@ -1,29 +1,29 @@
-æ•°æ®ç±»å‹ï¼š
-èœå•å­—å…¸ï¼š{name:{"label":label(~å¯ä¸nameç›¸åŒ~),"price":ä»·æ ¼}ï¼Œ}
-DAILY_MENU={"packed_rice": {"label":"ç±³é¥­ç›’é¥­","price":8},
-                  "packed_bun":{"label": "é¦’å¤´ç›’é¥­","price":8},
-                  "rice": {"label":"ç±³é¥­","price":1},
-                  "bun":{"label": "é¦’å¤´","price":1},
-                  "muslim_packed_rice":{"label": "æ¸…çœŸç±³é¥­ç›’é¥­","price":8},
-                  "muslim_packed_bun":{"label": "æ¸…çœŸé¦’å¤´ç›’é¥­","price":8}
+Êı¾İÀàĞÍ£º
+²Ëµ¥×Öµä£º{name:{"label":label(~¿ÉÓënameÏàÍ¬~),"price":¼Û¸ñ}£¬}
+DAILY_MENU={"packed_rice": {"label":"Ã×·¹ºĞ·¹","price":8},
+                  "packed_bun":{"label": "ÂøÍ·ºĞ·¹","price":8},
+                  "rice": {"label":"Ã×·¹","price":1},
+                  "bun":{"label": "ÂøÍ·","price":1},
+                  "muslim_packed_rice":{"label": "ÇåÕæÃ×·¹ºĞ·¹","price":8},
+                  "muslim_packed_bun":{"label": "ÇåÕæÂøÍ·ºĞ·¹","price":8}
 
                   }
 
-æ•°æ®åº“è¡¨ç»“æ„
+Êı¾İ¿â±í½á¹¹
 CREATE TABLE menu(
 pub_date date Not NULL,
 course varchar(20) PRIMARY KEY UNIQUE, 
 cost DECIMAL(10,2) NOT NULL
 );
 
-INSERT INTO menu VALUES('2019-7-14','çƒ§èŒ„å­',6);
-INSERT INTO menu VALUES('2019-7-14',"ç•ªèŒ„ç‚’è›‹",6), ('2019-7-10',"å†¬ç“œç‚–æ’éª¨",15),( '2019-7-14',"å°é¸¡ç‚–è˜‘è‡",10);
+INSERT INTO menu VALUES('2019-7-14','ÉÕÇÑ×Ó',6);
+INSERT INTO menu VALUES('2019-7-14',"·¬ÇÑ³´µ°",6), ('2019-7-10',"¶¬¹ÏìÀÅÅ¹Ç",15),( '2019-7-14',"Ğ¡¼¦ìÀÄ¢¹½",10);
 
-UPDATE menu SET pub_date = '2019-7-24' WHERE course = 'çƒ§èŒ„å­';
+UPDATE menu SET pub_date = '2019-7-24' WHERE course = 'ÉÕÇÑ×Ó';
 
-UPDATE menu SET pub_date = '2019-7-15' WHERE course = "ç•ªèŒ„ç‚’è›‹" OR course = "å†¬ç“œç‚–æ’éª¨";
+UPDATE menu SET pub_date = '2019-7-15' WHERE course = "·¬ÇÑ³´µ°" OR course = "¶¬¹ÏìÀÅÅ¹Ç";
 
-è®¢å•(è®¢å•å· è®¢é¤äºº è®¢å•å†…å®¹ ä»·æ ¼ æ—¥æœŸ å¤‡æ³¨ï¼‰-----------------------
+¶©µ¥(¶©µ¥ºÅ ¶©²ÍÈË ¶©µ¥ÄÚÈİ ¼Û¸ñ ÈÕÆÚ ±¸×¢£©-----------------------
 CREATE TABLE orders(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 custom varchar(10) NOT NULL,
@@ -32,26 +32,26 @@ cost DECIMAL(10,2) NOT NULL,
 order_date date Not NULL,
 memo varchar(50)
 );
-INSERT INTO orders(custom,content,cost,order_date) VALUES('å¼ ä¸‰','çƒ§èŒ„å­:1,ç±³é¥­:2',10,'2019-7-18');
+INSERT INTO orders(custom,content,cost,order_date) VALUES('ÕÅÈı','ÉÕÇÑ×Ó:1,Ã×·¹:2',10,'2019-7-18');
 
 
-INSERT INTO orders(custom,content,cost,order_date) VALUES(ææ°,packed_rice:2,rice:3,,40,2019-07-18);
-INSERT INTO orders(custom,content,cost,order_date) VALUES(å¼ ç£Š,packed_rice:2,rice:3,,40,2019-07-18);
- INSERT INTO orders(custom,content,cost,order_date) VALUES(ç‹åˆš,packed_rice:2,rice:3,,40,2019-07-18);
+INSERT INTO orders(custom,content,cost,order_date) VALUES(Àî½Ü,packed_rice:2,rice:3,,40,2019-07-18);
+INSERT INTO orders(custom,content,cost,order_date) VALUES(ÕÅÀÚ,packed_rice:2,rice:3,,40,2019-07-18);
+ INSERT INTO orders(custom,content,cost,order_date) VALUES(Íõ¸Õ,packed_rice:2,rice:3,,40,2019-07-18);
  
  
-è®¢é¤äººå‘˜è´¦æˆ·ï¼ˆè®¢é¤äºº è´¦æˆ·ä½™é¢ï¼‰
+¶©²ÍÈËÔ±ÕË»§£¨¶©²ÍÈË ÕË»§Óà¶î£©
 CREATE TABLE customs(
 custom varchar(10) NOT NULL PRIMARY KEY UNIQUE,
 account DECIMAL(10,2) NOT NULL DEFAULT 0
 );
-INSERT INTO customs(custom) VALUES ('ææ°');
-INSERT INTO customs VALUES ('å¼ ç£Š',100),('ç‹åˆš',100);
-INSERT INTO customs VALUES ('å‘¨è‰³',100),('éƒ‘å¹³',100),('æ›¹æ˜',100);
+INSERT INTO customs(custom) VALUES ('Àî½Ü');
+INSERT INTO customs VALUES ('ÕÅÀÚ',100),('Íõ¸Õ',100);
+INSERT INTO customs VALUES ('ÖÜÑŞ',100),('Ö£Æ½',100),('²ÜÃ÷',100);
 
-SELECT * FROM customs WHERE custom in ('å‘¨è‰³','éƒ‘å¹³','æ›¹æ˜');
+SELECT * FROM customs WHERE custom in ('ÖÜÑŞ','Ö£Æ½','²ÜÃ÷');
 SELECT id,custom,content,cost FROM orders WHERE order_date='{}';
-UPDATE customs SET account=80 WHERE custom='ææ°';
+UPDATE customs SET account=80 WHERE custom='Àî½Ü';
 
 UPDATE orders SET cost=8.8 WHERE id=43;
 
